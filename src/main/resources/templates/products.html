@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneVerse | Products</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <div><h2>Our Products</h2></div>
+        <div class="m-2">
+            <a class="h3 m-3" th:href="@{/products/new}">Add New Product</a>
+            <a class="h3 m-3" th:href="@{/products/buy}">Purchase Product</a>
+        </div>
+        <div th:if="${message}" class="alert alert-success text-center">
+            [[${message}]]
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>SKU</th><th>Item Name</th><th>Storage</th><th>Price</th><th>BuyDate</th><th>Status</th><th>Sell Date</th><th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="product:${listProducts}">
+                    <tr>
+                        <td>[[${product.sku}]]</td>
+                        <td>[[${product.itemName}]]</td>
+                        <td>[[${product.storage}]]</td>
+                        <td>[[${product.harga}]]</td>
+                        <td>[[${product.BuyDate}]]</td>
+                        <td>[[${product.status}]]</td>
+                        <td>[[${product.sellDate}]]</td>
+<!--                        <td><a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>-->
+<!--                            <a class="h4" th:href="@{'/users/delete/' + ${user.id}}">Delete</a></td>-->
+                        <td><a class="h4 mr-3" th:href="@{'/products/edit/' + ${product.sku}}">Edit</a>
+                            <a class="h4" th:href="@{'/products/delete/' + ${product.sku}}">Delete</a></td>
+                    </tr>
+                </th:block>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

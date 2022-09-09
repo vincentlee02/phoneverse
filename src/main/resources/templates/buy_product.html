@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>PhoneVerse | Purchase Product</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid mt-3">
+  <div class="text-center h2">Purchase Product</div>
+  <form th:action="@{/products/buy-product}" method="POST" th:object="${purchaseProduct}" style="max-width: 500px; margin: 0 auto;">
+    <div class="border border-secondary rounded p-3">
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Item Name</label>
+        <div class="col-sm-8">
+          <input type="text" th:field="*{itemName}" class="form-control" required minlength="3"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Storage</label>
+        <div class="col-sm-8 d-flex">
+          <input type="text" th:field="*{storage}" class="form-control" required/>
+<!--          <input type="text" disabled value="GB" style="width: 50px;" class="text-center">-->
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Quantity</label>
+        <div class="col-sm-8">
+          <input type="number" th:field="*{quantity}" class="form-control" required min="1"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Customer Name</label>
+        <div class="col-sm-8">
+          <input type="text" th:field="*{customerName}" class="form-control" required minlength="3"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Date of Birth</label>
+        <div class="col-sm-8">
+          <input type="date" th:field="*{tanggalLahir}" class="form-control" required/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Outlet</label>
+        <div class="col-sm-8">
+          <input type="text" th:field="*{outlet}" class="form-control" required minlength="3"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-4 col-form-label">Payment Method</label>
+        <div class="col-sm-8">
+          <input type="text" th:field="*{paymentMethod}" class="form-control" required minlength="3"/>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary m-2">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="cancelForm()">Cancel</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+  function cancelForm(){
+    window.location = "[[@{/products}]]";
+  }
+</script>
+</body>
+</html>

@@ -132,5 +132,9 @@ https://docs.jboss.org/hibernate/validator/3.1/reference/en/html_single/
 
 SQL Queries in Repository
 https://www.baeldung.com/spring-data-jpa-query
+
+How to backup SQL file in PostgreSQL                                                                  
+https://www.youtube.com/watch?v=zNjuXR9ouJI                                                                  
                                                                   
-                                                                
+Backup problem please correct the binary path in PostgreSQL
+https://www.youtube.com/watch?v=7cBkXKCY4Ew                                                                 
